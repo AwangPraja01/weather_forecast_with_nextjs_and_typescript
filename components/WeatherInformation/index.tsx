@@ -5,7 +5,7 @@ const WeatherInformation: FC = () => {
   return (
     <div
       id='weather-information-container'
-      className='w-3/5 flex flex-row items-end justify-start text-white self-end px-12 py-16'>
+      className='w-3/5 flex flex-row items-end justify-start text-white self-end px-12 py-16 relative'>
       <div className='mr-1'>
         <span className='text-7xl'>16&deg;</span>
       </div>
@@ -15,7 +15,7 @@ const WeatherInformation: FC = () => {
           <span className='text-4xl font-semibold'>London</span>
         </div>
         <div>
-          <span className='text-base'>06:09 - Monday,9 September 2021</span>
+          <span className='text-base'>06:09 - Monday, 9 September 2021</span>
         </div>
       </div>
 

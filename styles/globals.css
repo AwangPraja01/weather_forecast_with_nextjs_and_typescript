@@ -4,12 +4,16 @@
 
 body {
   background-image: url("../public/image/cloudy.jpg");
-  @apply bg-center bg-no-repeat relative;
+  @apply bg-cover bg-center bg-no-repeat relative;
 }
 
 #weather-more-information-container {
-  background: rgba(207, 207, 207, 0.25);
+  background: rgba(56, 55, 55, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
+}
+
+#search-by-country-input::placeholder {
+  @apply text-gray-200;
 }
