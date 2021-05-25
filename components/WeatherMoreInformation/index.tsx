@@ -25,18 +25,18 @@ const WeatherMoreInformation: FC = () => {
   return (
     <div
       id='weather-more-information-container'
-      className='flex-1 h-screen overflow-y-auto px-14 py-9 relative text-white'>
+      className='hidden sm:block flex-1 h-screen overflow-y-auto px-14 py-9 relative text-white'>
       <div
         id='search-by-country'
         className='flex flex-row justify-between items-start w-full border-b border-gray-100 mb-8 '>
-        <div>
+        <div className='w-full'>
           <div className='mb-8'>
             <form onSubmit={handleOnSubmit}>
               <input
                 ref={searchInput}
                 value={query}
                 onChange={handleOnChange}
-                className='bg-transparent focus:outline-none text-gray-200 pb-1 border-gray-100 border-b w-72'
+                className='bg-transparent focus:outline-none text-gray-200 pb-1 border-gray-100 border-b w-full lg:w-3/4'
                 type='text'
                 placeholder='Another location'
                 name='search-by-country-input'
@@ -80,7 +80,7 @@ const WeatherMoreInformation: FC = () => {
           </div>
         </div>
         <div
-          className='bg-blue-200 p-6 absolute right-0 top-0 cursor-pointer hover:bg-blue-400'
+          className='bg-blue-200 p-6 absolute right-0 top-0 cursor-pointer hover:bg-blue-400 hidden lg:block'
           onClick={handleFocus}>
           <span className='text-xl text-black '>
             <FeatherIcons.FiSearch />
@@ -88,11 +88,13 @@ const WeatherMoreInformation: FC = () => {
         </div>
       </div>
 
-      <div id='weather-detail' className='w-full border-b border-gray-100 mb-8'>
+      <div
+        id='weather-detail'
+        className='w-full lg:border-b lg:border-gray-100 lg:mb-8'>
         <div className='mb-8'>
           <span>Weather Detail</span>
         </div>
-        <div className='mb-8'>
+        <div className='lg:mb-8'>
           <div className='mb-5 flex flex-row justify-between items-center'>
             <span>Cloudy</span>
             <span>{weatherData.current.cloud} %</span>
@@ -108,7 +110,7 @@ const WeatherMoreInformation: FC = () => {
         </div>
       </div>
 
-      <div id='weather-daily-forecasts'>
+      <div id='weather-daily-forecasts' className='hidden lg:block'>
         <div className='mb-8'>
           <span>Daily Forecasts</span>
         </div>
