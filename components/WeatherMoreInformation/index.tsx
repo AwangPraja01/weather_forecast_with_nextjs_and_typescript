@@ -3,6 +3,7 @@ import { useContext } from "react";
 import * as FeatherIcons from "react-icons/fi";
 import { WeatherContext } from "../../contexts/WeatherContext";
 import Moment from "react-moment";
+import { v4 as uuidv4 } from "uuid";
 
 const WeatherMoreInformation: FC = () => {
   const searchInput = useRef<HTMLInputElement>(null);
@@ -115,7 +116,7 @@ const WeatherMoreInformation: FC = () => {
           <table className='w-full'>
             <tbody>
               {weatherData.forecast.forecastday.map((item) => (
-                <tr>
+                <tr key={uuidv4()}>
                   <td className='text-left pr-4'>
                     <Moment
                       date={new Date(item.date)}
