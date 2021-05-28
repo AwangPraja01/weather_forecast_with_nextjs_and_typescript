@@ -23,6 +23,7 @@ export type forecastdayObject = {
 };
 
 export type WeatherContextState = {
+  backgroundImage: string;
   query: string;
   weatherData: {
     location: {

@@ -1,10 +1,12 @@
-import Head from "next/head";
 import React from "react";
 import WeatherInformation from "../components/WeatherInformation";
 import WeatherMoreInformation from "../components/WeatherMoreInformation";
-import WeatherContextProvider from "../contexts/WeatherContext";
+import Head from "next/head";
+import { useContext } from "react";
+import { WeatherContext } from "../contexts/WeatherContext";
 
 const Home = () => {
+  const { backgroundImage } = useContext(WeatherContext);
   return (
     <>
       <Head>
@@ -17,11 +19,10 @@ const Home = () => {
         <link rel='icon' href='/weather-app.ico' />
       </Head>
 
-      <div className='flex flex-row items-start justify-between'>
-        <WeatherContextProvider>
-          <WeatherInformation />
-          <WeatherMoreInformation />
-        </WeatherContextProvider>
+      <div
+        className={`flex flex-row items-start justify-between  bg-cover bg-center bg-no-repeat ${backgroundImage}`}>
+        <WeatherInformation />
+        <WeatherMoreInformation />
       </div>
     </>
   );

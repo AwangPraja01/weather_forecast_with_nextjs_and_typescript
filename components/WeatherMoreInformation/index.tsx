@@ -80,7 +80,13 @@ const WeatherMoreInformation: FC = () => {
           </div>
         </div>
         <div
-          className='bg-blue-200 p-6 absolute right-0 top-0 cursor-pointer hover:bg-blue-400 hidden lg:block'
+          className={`${
+            weatherData.current.condition.text.includes("rain")
+              ? "bg-rainy"
+              : weatherData.current.condition.text.includes("cloudy")
+              ? "bg-cloudy"
+              : "bg-sunny"
+          } p-6 absolute right-0 top-0 cursor-pointer hover:bg-blue-400 hidden lg:block`}
           onClick={handleFocus}>
           <span className='text-xl text-black '>
             <FeatherIcons.FiSearch />

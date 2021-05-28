@@ -3,8 +3,39 @@
 @tailwind utilities;
 
 body {
-  background-image: url("../public/image/cloudy.jpg");
   @apply bg-cover bg-center bg-no-repeat relative;
+}
+
+body::-webkit-scrollbar,
+#weather-more-information-container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #686868;
+}
+
+body::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+#weather-more-information-container::-webkit-scrollbar-track {
+  background: #393e46;
+}
+
+#weather-more-information-container::-webkit-scrollbar-thumb {
+  background-color: #181818;
+  border-radius: 0.5rem;
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb,
+#weather-more-information-container:hover::-webkit-scrollbar-thumb {
+  background-color: #181818;
+  border-radius: 0.5rem;
+  background: #686868;
 }
 
 #weather-more-information-container {

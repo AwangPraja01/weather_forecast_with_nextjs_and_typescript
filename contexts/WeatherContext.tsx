@@ -2,6 +2,7 @@ import React, { FC, createContext, useState, useEffect } from "react";
 import { WeatherContextState } from "../types";
 
 const WeatherContextDefaultValues: WeatherContextState = {
+  backgroundImage: "",
   query: "Pontianak",
   weatherData: {
     location: {
@@ -41,6 +42,9 @@ export const WeatherContext = createContext<WeatherContextState>(
 
 const WeatherContextProvider: FC = (props) => {
   const [query, setQuery] = useState(WeatherContextDefaultValues.query);
+  const [backgroundImage, setBackgroundImage] = useState(
+    WeatherContextDefaultValues.backgroundImage
+  );
   const [weatherData, setWeatherData] = useState(
     WeatherContextDefaultValues.weatherData
   );
@@ -57,6 +61,13 @@ const WeatherContextProvider: FC = (props) => {
     e.preventDefault();
     fetchWeatherData();
     setQuery("");
+    setBackgroundImage(
+      weatherData.current.condition.text.includes("rain")
+        ? "bg-rainy-background"
+        : weatherData.current.condition.text.includes("cloudy")
+        ? "bg-cloudy-background"
+        : "bg-sunny-background"
+    );
   };
 
   const fetchWeatherData = async () => {
@@ -66,6 +77,13 @@ const WeatherContextProvider: FC = (props) => {
       )
     ).json();
     setWeatherData(data);
+    setBackgroundImage(
+      data.current.condition.text.includes("rain")
+        ? "bg-rainy-background"
+        : data.current.condition.text.includes("cloudy")
+        ? "bg-cloudy-background"
+        : "bg-sunny-background"
+    );
   };
 
   useEffect(() => {
@@ -80,6 +98,7 @@ const WeatherContextProvider: FC = (props) => {
         handleOnChange,
         handleOnSubmit,
         handleOnClickSpanElement,
+        backgroundImage,
       }}>
       {props.children}
     </WeatherContext.Provider>
