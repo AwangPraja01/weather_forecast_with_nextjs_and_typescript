@@ -11,7 +11,10 @@ module.exports = {
       colors: {
         rainy: "#97bbb9",
         cloudy: "#bfdbfe",
-        sunny: "#f5eae3",
+        sunny: "#e04934",
+        "sunny-hover": "#992b1c",
+        "rainy-hover": "#9ce6e4",
+        "cloudy-hover": "#60a5fa",
       },
     },
   },

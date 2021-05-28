@@ -22,6 +22,20 @@ const WeatherMoreInformation: FC = () => {
     }
   };
 
+  const searchIconColor = weatherData.current.condition.text.includes("rain")
+    ? "bg-rainy"
+    : weatherData.current.condition.text.includes("cloudy")
+    ? "bg-cloudy"
+    : "bg-sunny";
+
+  const searchIconColorHover = weatherData.current.condition.text.includes(
+    "rain"
+  )
+    ? "bg-rainy-hover"
+    : weatherData.current.condition.text.includes("cloudy")
+    ? "bg-cloudy-hover"
+    : "bg-sunny-hover";
+
   return (
     <div
       id='weather-more-information-container'
@@ -80,13 +94,7 @@ const WeatherMoreInformation: FC = () => {
           </div>
         </div>
         <div
-          className={`${
-            weatherData.current.condition.text.includes("rain")
-              ? "bg-rainy"
-              : weatherData.current.condition.text.includes("cloudy")
-              ? "bg-cloudy"
-              : "bg-sunny"
-          } p-6 absolute right-0 top-0 cursor-pointer hover:bg-blue-400 hidden lg:block`}
+          className={`${searchIconColor} hover:${searchIconColorHover} p-6 absolute right-0 top-0 cursor-pointer  hidden lg:block`}
           onClick={handleFocus}>
           <span className='text-xl text-black '>
             <FeatherIcons.FiSearch />
